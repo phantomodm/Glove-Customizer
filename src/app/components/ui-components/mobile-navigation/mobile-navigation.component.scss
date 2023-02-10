@@ -1,0 +1,38 @@
+.bi-arrow-right,
+.bi-arrow-left{
+  width:28px;
+  height:28px;
+}
+
+.navigation_label {
+  font-size: 1.2rem;
+  margin: unset;
+}
+
+.navigation-header{
+  align-items: center;
+}
+
+@media (max-width: 450px)  {
+  .bi-arrow-right,
+  .bi-arrow-left {
+    width: 20px;
+    height: 20px;
+  }
+  .navigation_label {
+    font-size: 1rem;
+    margin: unset;
+  }
+}
+
+@media (max-width: 378px)  {
+  .bi-arrow-right,
+  .bi-arrow-left {
+    width: 20px;
+    height: 20px;
+  }
+  .navigation_label {
+    font-size: 0.895rem;
+    margin: unset;
+  }
+}

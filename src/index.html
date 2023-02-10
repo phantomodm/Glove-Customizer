@@ -8,6 +8,19 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <app-root></app-root>
+  <div class="cgb-loader" style="width:100%; height: 500px" #cgbloader>
+    <div class="d-flex flex-column justify-content-center align-items-center" style="height:100%">
+      <div>
+        <p>
+          Loading...
+        </p>
+      </div>
+      <div class="spinner-grow" role="status">
+          <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+  <custom-glove-builder name="Custom Glove" price="179.00" sale-price="159"></custom-glove-builder>
+
 </body>
 </html>

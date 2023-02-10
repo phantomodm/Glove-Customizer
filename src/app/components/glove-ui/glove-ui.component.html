@@ -1,0 +1,41 @@
+<div id="glove-designer" class="container" style="padding: unset;">
+  <div class="row" >
+    <ngb-accordion activeIds="main-0" [destroyOnHide]=false>
+      <ngb-panel id="main-0" title="Glove Designer">
+        <ng-template ngbPanelContent>
+          <div class="row">
+            <div class="col-sm-12 col-lg-5">
+              <app-glove-view></app-glove-view>
+            </div>
+            <div class="col-sm-12 col-lg-7 desktop-mode">
+              <ngb-accordion [closeOthers]="true" activeIds="sub-memu-0">
+                <ng-container *ngIf="options !== undefined">
+                  <ng-container *ngFor="let option of options; index as i">
+                    <ngb-panel id="sub-memu-{{i}}" class="sub-menu">
+                      <ng-container *ngIf=></ng-container>
+
+                      <ng-template ngbPanelTitle>
+                        <h5>{{ option.label }}</h5>
+                      </ng-template>
+
+                      <ng-template ngbPanelContent>
+                        <ng-container *ngIf="option.info as info">
+                          <div class="info-modal" *ngIf="info.label != null">
+                            <i class="bi bi-info-circle text-end" ngbTooltip="{{info.label}}" style="font-size: 25px;"></i>
+                          </div>
+                          <app-accord-panel [items]="option.prompt" [index]="option.header"></app-accord-panel>
+                        </ng-container>
+                      </ng-template>
+
+                    </ngb-panel>
+                  </ng-container>
+                </ng-container>
+              </ngb-accordion>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+  </div>
+</div>
+

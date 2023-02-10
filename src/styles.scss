@@ -1,1 +1,145 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+.accordion-body {
+  --bs-accordion-body-padding-x: 0px;
+  --bs-accordion-body-padding-y: 0.5rem;
+}
+
+.accordion-button {
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(10, 10, 10, 0.50);
+  --bs-accordion-btn-bg: #5b5959;
+  --bs-accordion-active-bg: #171616;
+  --bs-accordion-btn-focus-border-color:#171616;
+  --bs-accordion-active-color: #fff;
+  --bs-accordion-btn-color: rgb(235, 235, 235);
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+  --bs-accordion-btn-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+}
+
+.accordion-button > h6 {
+  --bs-accordion-active-color: #fff;
+  --bs-accordion-btn-color: rgb(235, 235, 235);
+}
+
+.carousel-control-prev-icon{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='navy'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+}
+
+.carousel-control-next-icon{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='navy'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.main-button-group{
+  display: flex;
+  margin-bottom: 2px;
+
+}
+
+// .main-button-group__item{
+//   display: flex;
+//   padding: 1rem;
+// }
+
+.leftRs,
+.rightRs {
+    position: absolute;
+    background: none;
+    border: none;
+    margin: auto;
+    width: 2rem;
+    height: 2rem;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+.leftRs {
+    background-image: url('//nystix.com/wp-content/uploads/2021/01/keyboard_arrow_left-32px1.svg') ;
+    left: 0;
+    background-repeat: no-repeat;
+}
+
+.rightRs {
+    background-image: url('//nystix.com/wp-content/uploads/2021/01/keyboard_arrow_right-32px1.svg') ;
+    right: 0;
+    background-repeat: no-repeat;
+}
+
+.radio-input-container {
+  display: flex;
+  flex-flow:wrap;
+  margin-bottom: 8px;
+}
+
+.radio-buttons {
+  height: 1.563rem;
+  width: 1.563rem;
+  margin: 5px;
+  border-radius: 1.563rem;
+  opacity: 1;
+}
+
+.radio-buttons:hover {
+  opacity: 0.5;
+}
+
+.required {
+  color:#dc3545;
+  font-size: 0.850em;
+  padding-left: 2px;
+}
+
+ngb-accordion {
+  //padding: unset;
+  padding: 0px 6px;
+}
+
+.qo-tooltip-class .tooltip-inner {
+  width: 60px;
+  background-color: purple;
+}
+
+.qo-tooltip-class .arrow::before {
+  border-top-color: purple;
+}
+
+.web-buttons{
+  width: 3.125rem;
+  height:3.125rem;
+  margin:2px;
+
+  display: flex;
+  justify-content: center;
+  vertical-align: center;
+}
+
+.web-buttons img {
+  height: 100%;
+  padding: 2px;
+}
+
+.swipe{
+  width: 50px;
+  height: 54px;
+  padding: 5px;
+  margin: auto;
+  margin-top: -5px;
+  margin-bottom: 5px;
+  background-image: url('https://nystix.com/wp-content/uploads/2021/01/swipe.svg  ')
+}
+
+@media (max-width: 991px) {
+  .carousel-indicators{
+    display: none;
+    pointer-events: none;
+  }
+}
+
+@media only screen and (max-width:992px){
+  .swipe {
+      display:block;
+  }
+}

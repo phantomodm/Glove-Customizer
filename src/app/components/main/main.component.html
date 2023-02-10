@@ -1,0 +1,82 @@
+<div class="container-fluid" style="padding: unset;">
+  <ngb-accordion #mainStep [closeOthers]="true" activeIds="main-0" [destroyOnHide]="false" (shown)="panelChange($event)">
+    <ng-container *ngIf="steps !== undefined">
+      <ng-container *ngFor="let section of steps; index as i;">
+        <ngb-panel id="{{section.id}}{{i}}" [disabled]="section.disabled">
+          <ng-container *ngFor="let step of steps">
+            <ng-template ngbPanelTitle>
+              <h6>{{section.title}}</h6>
+            </ng-template>
+          </ng-container>
+
+          <ng-template ngbPanelContent>
+            <dl class="row align-items-center">
+
+              <ng-container *ngIf="!section.includeOptions">
+                <dt class="col-sm-12 col-md-4 text-center">
+                  {{section.label}}
+                </dt>
+                <ng-container *ngIf="section.label.toLowerCase() === 'glove size'">
+                  <dd class="col-sm-12 col-md-8 mb-1 d-flex">
+                    <div class=" col main-button-group__item">
+                      <ng-container *ngFor="let variation of setGloveSize(); index as i">
+                        <input type="radio" class="btn-check" id="{{variation}}-{{i}}" autocomplete="off">
+                        <button type="button" (click)="addVariation(variation)"
+                          class="btn btn-outline-success flex-fill m-2">{{variation.name}}</button>
+                      </ng-container>
+                    </div>
+                  </dd>
+                </ng-container>
+
+                <ng-container *ngIf="section.title.toLowerCase() !== 'glove size'">
+                  <dd class="col-sm-12 col-md-8 mb-1 d-flex">
+                    <div class=" col main-button-group__item">
+                      <ng-container *ngFor="let variation of section.variations; index as i">
+                        <input type="radio" class="btn-check" id="{{variation}}-{{i}}" autocomplete="off">
+                        <button type="button" (click)="addVariation(variation)"
+                          class="btn btn-outline-success flex-fill m-2">{{variation.name}}</button>
+                      </ng-container>
+                    </div>
+
+                  </dd>
+                </ng-container>
+                <div class="col-12"></div>
+              </ng-container>
+
+              <ng-container *ngIf="section.includeOptions">
+                <ng-container *ngIf="section.title === 'Glove Brand'">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-12 px-5 brand-info" [innerHtml]="section.info.title + section.info.content"></div>
+                      <ngu-carousel [inputs]="carouselTile" [dataSource]="section.variations">
+                        <button type="button" class="leftRs" NguCarouselPrev></button>
+                        <button type="button" class="rightRs" NguCarouselNext></button>
+
+                        <ngu-tile *nguCarouselDef="let item;">
+                          <section>
+                              <div class="d-flex flex-column py-4">
+                                <div class="glove-brand-view__list pb-2 my-2">
+                                  <h4 style="font-weight: 600;">{{item?.name}}</h4>
+                                </div>
+                                <div class="glove-brand-view__list pb-2 my-2">
+                                  <img class="glove-brand-img-size" mat-card-image [src]="(item?.img)">
+                                </div>
+                                <div class="glove-brand-view__list pt-2 my-2">
+                                  <button type="button" (click)="addVariation(item)" class="btn btn-lg w-100 btn-outline-success">Select</button>
+                                </div>
+                              </div>
+                          </section>
+                        </ngu-tile>
+                      </ngu-carousel>
+                    </div>
+                  </div>
+                </ng-container>
+              </ng-container>
+            </dl>
+          </ng-template>
+        </ngb-panel>
+      </ng-container>
+    </ng-container>
+
+  </ngb-accordion>
+</div>

@@ -1,0 +1,47 @@
+
+<div id="glove-container" class="container">
+  <div id="priceContainer" class="row p-2">
+    <ng-container *ngIf="product$ | async as product; else static">
+      <div class="d-inline-flex justify-content-center align-items-center">
+        <div class="fs-6 mx-1 col">US Steer</div>
+        <div class="form-check col form-switch d-flex justify-content-center align-items-center ">
+          <ng-template #tipContent> <p>Toggling this switch will change the leather color palette.</p></ng-template>
+
+          <input class="form-check-input leather-input" type="checkbox" role="switch" [ngbTooltip]="tipContent" id="flexSwitchCheckDefault" (change)="setLeather($event)" >
+          <label class="form-check-label fs-6" for="flexSwitchCheckDefault">Japanese Kip</label>
+        </div>
+        <div class="col-xs-2 col-sm-3 col-4 text-end" style="padding: 2px;">
+          <p class="h2">{{product.price}}</p>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #static>
+      <div class="col-6">NYStix Glove Customizer</div>
+      <div class="col-6 text-end"><p class="h4">125.00</p></div>
+    </ng-template>
+  </div>
+  <div id="gloveContainer" class="row d-flex justify-content-center align-items-center">
+    <ngb-carousel #gloveSlide="ngbCarousel" class="glove-carousel">
+      <ng-template  ngbSlide id="slide-0" >
+        <div>
+          <svg id="svg-main" #svgMain></svg>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide id="slide-1">
+        <div>
+          <svg id="svg-inside" #svgInside></svg>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide id="slide-2">
+        <div>
+          <svg id="svg-side" #svgSide></svg>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+
+  <div class=" row mobile-mode">
+    <app-mobile-ui></app-mobile-ui>
+  </div>
+</div>
+

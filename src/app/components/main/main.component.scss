@@ -1,0 +1,114 @@
+ngb-accordion {
+  //padding: unset;
+  padding: 0px 6px;
+}
+
+.brand-info > h3 {
+  font-size: inherit;
+}
+
+.brand-info > p {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.main {
+  display: flex;
+}
+
+.main-button-group{
+  display: flex;
+  margin-bottom: 2px;
+
+}
+
+.main-button-group__item{
+  display: flex;
+  padding: 1rem;
+}
+
+label {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  margin-right: 5px;
+}
+
+.wrap {
+  flex-flow: wrap;
+}
+
+
+.glove-brand-img-size {
+  width: 150px;
+  height: 100px;
+}
+
+.glove-brand-view_column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.glove-brand-view__list {
+  display:flex;
+  justify-content: center;
+}
+
+/* .glove-brand-view__list:first-child {
+  margin-bottom: 1.5rem;
+} */
+
+.glove-brand-margin {
+  margin: 0px 30px 0 30px;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 991px) {
+  .main-button-group__item {
+    padding: 0.2rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .brand-info h3{
+    font-size: 1.1rem;
+  }
+  .brand-info p{
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+  .main-button-group__item {
+    padding:.4rem;
+  }
+
+  label{
+    font-size: .8rem;
+    font-weight: 600;
+    height: 50px;
+    padding: 0px;
+  }
+}
+
+@media (max-width: 460px) {
+  .card{
+    padding: 4px 4x;
+  }
+  .main-button-group__item {
+    padding:.3rem;
+  }
+
+  button {
+    font-size: 0.8rem;
+    padding-right:0px;
+    padding-left:0px;
+  }
+
+}

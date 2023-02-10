@@ -1,0 +1,76 @@
+@import "/node_modules/bootstrap/scss/bootstrap.scss";
+
+.leftRs,
+.rightRs {
+    position: absolute;
+    background: none;
+    border: none;
+    margin: auto;
+    width: 2rem;
+    height: 2rem;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+.leftRs {
+    background-image: url('//nystix.com/wp-content/uploads/2021/01/keyboard_arrow_left-32px1.svg') ;
+    left: 0;
+    background-repeat: no-repeat;
+}
+
+.rightRs {
+    background-image: url('//nystix.com/wp-content/uploads/2021/01/keyboard_arrow_right-32px1.svg') ;
+    right: 0;
+    background-repeat: no-repeat;
+}
+
+.radio-input-container {
+  display: flex;
+  flex-flow:wrap;
+  margin-bottom: 8px;
+}
+
+.radio-buttons {
+  display: flex;
+  height: 1.563rem;
+  width: 1.563rem;
+  margin: 5px;
+  border-radius: 1.563rem;
+  opacity: 1;
+}
+
+.radio-buttons:hover {
+  opacity: 0.5;
+}
+
+.required {
+  color:#dc3545;
+  font-size: 1.2rem;
+  padding-left: 2px;
+  margin-top: -10px;
+}
+
+.qo-tooltip-class .tooltip-inner {
+  width: 60px;
+  background-color: purple;
+}
+
+.qo-tooltip-class .arrow::before {
+  border-top-color: purple;
+}
+
+.web-buttons{
+  width: 3.125rem;
+  height:3.125rem;
+  margin:2px;
+
+  display: flex;
+  justify-content: center;
+  vertical-align: center;
+}
+
+.web-buttons img {
+  height: 100%;
+  padding: 2px;
+}

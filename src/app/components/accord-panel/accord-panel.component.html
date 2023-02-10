@@ -1,0 +1,148 @@
+<ngb-accordion [closeOthers]="true" [destroyOnHide]="true" activeIds="{{index | dashString}}-0" #subMenu>
+  <ng-container *ngFor="let item of items; index as s">
+    <ng-container *ngIf="item.active">
+      <ngb-panel id="{{index | dashString}}-{{s}}">
+        <ng-template ngbPanelTitle>
+          <h6>{{ item.title }}</h6>
+        </ng-template>
+
+        <ng-template ngbPanelContent>
+          <ng-container [ngSwitch]="true">
+            <div class="container">
+              <ng-container *ngSwitchCase="item.title === 'Finger Cover'">
+                <div class="container">
+                  <div class="row">
+                    <div class="pl-2">
+                      <svg ngbTooltip="{{item.info.description}}" xmlns="http://www.w3.org/2000/svg" width="25"
+                        height="25" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                        <path
+                          d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <app-input-slider [dataSource]="item.variations"></app-input-slider>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="item.title === 'Glove Personalization'">
+                <div class="row">
+                  <dl class="row w-100 align-items-center">
+                    <dt class="col-sm-12 col-md-5 text-center mb-2">
+                      Personalize your glove
+                    </dt>
+                    <dd class="col-sm-12 col-md-7 mb-1 ">
+                      <div class="">
+                        <input type="text" class="form-control" id="glove-personalization"
+                          placeholder="Glove Personalization" #personalization
+                          (keyup)="addPersonalization(item.gloveInputs[0])" />
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl class="row w-100 align-items-center">
+                    <ng-container>
+                      <dt class="col-sm-12 col-md-5 text-center mb-2">
+                        Embroidery Font
+                      </dt>
+                      <dd class="col-sm-12 col-md-7 mb-1 d-flex">
+                        <div class=" col main-button-group__item">
+                          <ng-container *ngFor="let part of item.gloveInputs">
+                            <ng-container *ngFor="let variation of part.variations; index as i">
+                              <input type="radio" class="btn-check" id="{{variation}}-{{i}}" autocomplete="off">
+                              <button type="button" (click)="addVariation(variation)"
+                                class="btn btn-outline-success flex-fill m-2">{{variation.name}}</button>
+                            </ng-container>
+                          </ng-container>
+                        </div>
+                      </dd>
+                    </ng-container>
+                  </dl>
+                  <dl class="row w-100 align-items-center">
+                    <dt class="col-sm-12 col-md-5 text-center mb-2">
+                      Order Notes
+                    </dt>
+                    <dd class="col-sm-12 col-md-7 mb-1 ">
+                      <div class="form-floating">
+                        <textarea class="form-control" id="customer-notes" placeholder="Glove Personalization"
+                          #customernotes (keyup)="addOrderNote(item.gloveInputs[2])" style="height: 100px"></textarea>
+                          <label for="customer-notes">Anything we need to know? </label>
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+
+                <div class="row px-5">
+                  <button type="button" class="btn btn-success px-5" (click)="triggerAddToCart()">Purchase Your Glove</button>
+                </div>
+                <app-policy-modal></app-policy-modal>
+              </ng-container>
+
+              <div class="row px-2">
+                <ng-container *ngSwitchCase="item.title === 'Webs'">
+                  <div class="row">
+                    <div class="col"></div><div class="col"><p class="h6">Web Selected: <span style="color: rgb(0, 0, 0); font-weight:600; font-style: italic; font-size: 1.125em ; padding-left: 10px;">{{custom[item.attribute_pewc] || 'No Selection'}}</span></p></div>
+                  </div>
+
+                  <app-input-slider [dataSource]="filterWebInputs()" [currentAttribute]="item"></app-input-slider>
+                  <app-sub-accordion-panel [header]="item.title" [items]="item.gloveInputs" [section]="item?.type">
+                  </app-sub-accordion-panel>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="item.title === 'Glove Shell' && item.active === true">
+                  <app-sub-accordion-panel [header]="item.title" [items]="item.gloveInputs" [section]="item?.type">
+                  </app-sub-accordion-panel>
+                </ng-container>
+
+                <ng-container *ngSwitchDefault>
+                  <ng-container *ngIf="item.gloveInputs.length <= 1">
+                    <!-- <div *ngIf="item.info.description !== null" class="pl-2">
+                      <svg ngbTooltip="{{item.info.description}}" xmlns="http://www.w3.org/2000/svg" width="25"
+                        height="25" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                        <path
+                          d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                      </svg>
+                    </div> -->
+
+                    <ng-container *ngFor="let i of item.gloveInputs">
+                      <ng-container *ngIf="colors !== undefined">
+                        <div class="row w-100 align-items-baseline">
+                          <div class="col-6 d-inline-flex"><p class="h6" style="margin:0px 5px;">{{i.label}}</p>
+                            <svg *ngIf="item.info.description !== null" ngbTooltip="{{item.info.description}}" xmlns="http://www.w3.org/2000/svg" width="25"
+                            height="25" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                              d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                          </svg></div>
+                          <div class="col-6 "> <p>Selection: <span style="color: rgb(0, 0, 0); font-weight:600; font-style: italic; font-size: 1.125em ; padding-left: 10px;">{{custom[i.attribute_pewc] || 'No Selection'}}</span></p>
+                          </div>
+                        </div>
+                        <ng-container class="col-md radio-input-container "
+                          *ngFor="let input of colorFilter(item.type, i.gloveType); index as x;">
+                          <button id="{{input.label | dashString}}-{{x}}" type="button" class="btn shadow radio-buttons"
+                            [style.background]="input.hex" (click)="addColorVariation(i, input)"
+                            ngbTooltip="{{ input.name }}" tooltipClass="qo-tooltip-class">
+                          </button>
+                        </ng-container>
+                      </ng-container>
+
+                    </ng-container>
+                  </ng-container>
+
+                  <ng-container *ngIf="item.gloveInputs.length > 1 && item.title !== 'Glove Personalization'">
+                    <app-sub-accordion-panel [header]="item.title" [items]="item.gloveInputs" [section]="item?.type">
+                    </app-sub-accordion-panel>
+                  </ng-container>
+                </ng-container>
+              </div>
+            </div>
+          </ng-container>
+        </ng-template>
+      </ngb-panel>
+    </ng-container>
+
+
+  </ng-container>
+</ngb-accordion>

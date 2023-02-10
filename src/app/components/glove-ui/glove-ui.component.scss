@@ -1,0 +1,130 @@
+
+$glove-accordion-icon-color:"white";
+
+.ngb-padding{
+    padding: 0px 6px;
+}
+
+ngb-accordion {
+  //padding: unset;
+  padding: 0px 6px;
+}
+
+.info-modal {
+  display: flex;
+  justify-content: flex-start;
+  padding-left:10px;
+}
+
+.custom-header-button.accordion-button {
+  // background-color: #cdc9c9 !important;
+  // --bs-accordion-active-bg: #c43b3b !important;
+  --bs-accordion-active-color: #fff;
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+}
+
+.numberCircle {
+  border-radius: 50%;
+  width: 1.8rem;
+  height: 1.8rem;
+  padding: 8px;
+
+  background: #fff;
+  border: 2px solid #666;
+  color: #666;
+  text-align: center;
+
+  font: 1rem Arial, sans-serif;
+}
+
+
+
+.web-buttons{
+  width: 3.125rem;
+  height:3.125rem;
+  margin:2px;
+
+  display: flex;
+  justify-content: center;
+  vertical-align: center;
+}
+
+.web-buttons img {
+  height: 100%;
+  padding: 2px;
+}
+
+.form-group > i {
+  margin: 0.25rem;
+}
+
+
+.fpad-img-size {
+  width: auto;
+  height: 172px;
+}
+
+.fpad-web-view_column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fpad-web-view__list {
+  display:flex;
+  justify-content: center;
+}
+
+.fpad-web-view__list:first-child {
+  margin-bottom: 1.5rem;
+}
+
+.fpad-margin {
+  margin: 0px 30px 0 30px;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+
+.glove-brand-img-size {
+  width: 206px;
+  height: 100px;
+}
+
+.glove-brand-view_column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.glove-brand-view__list {
+  display:flex;
+  justify-content: center;
+}
+
+/* .glove-brand-view__list:first-child {
+  margin-bottom: 1.5rem;
+} */
+
+.glove-brand-margin {
+  margin: 0px 30px 0 30px;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+.desktop-mode {
+  display: block;
+}
+
+@media (max-width: 991px) {
+  .desktop-mode {
+    display: none;
+  }
+}
+
